@@ -15,6 +15,7 @@ public class spawnScript : MonoBehaviour {
 		Instantiate (fastEnemy, new Vector2 (6, -2 ), this.transform.rotation);
 		Instantiate (fastEnemy, new Vector2 (8, -2 ), this.transform.rotation);
 		Instantiate(enemy,new Vector2(4,2),this.transform.rotation);
+		Instantiate(enemy,new Vector2(8,2),this.transform.rotation);
 		Invoke ("SpawnEnemy", 2f);
 	}
 }

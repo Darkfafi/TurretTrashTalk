@@ -7,6 +7,7 @@ public class TurretSystemScript : MonoBehaviour {
 	public GameObject gun;
 	public GameObject bullet;
 	public GameObject bulletSpawn;
+	public float shootCooldown;
 	
 	public List<GameObject> enemyList = new List<GameObject>();
 	
@@ -29,9 +30,14 @@ public class TurretSystemScript : MonoBehaviour {
 		if(enemyList[0] != null){
 			gun.transform.LookAt (enemyList[0].gameObject.transform.position);
 			gun.transform.Rotate (new Vector3 (90, 0, 0));
-			if (shooting == false && enemyList.Count > 0) {
+			if (shooting == false) {
 				shooting = true;
 				Shoot();
+			}else if (shooting){
+				shootCooldown -= Time.deltaTime;
+				if(shootCooldown <= 0){
+					Shoot();
+				}
 			}
 		}
 		
@@ -64,13 +70,8 @@ public class TurretSystemScript : MonoBehaviour {
 		//enemyList.Sort ();
 	}
 	void Shoot(){
-		if(shooting){
-			Invoke("Shoot",0.35f);
-		
-			if(enemyList.Count > 0){
-				Instantiate (bullet,bulletSpawn.transform.position, gun.transform.rotation);
-			}
-		}
+		shootCooldown = 0.20f;
+		Instantiate (bullet,bulletSpawn.transform.position, gun.transform.rotation);
 	}
 	void RemoveTarget(GameObject other){
 		enemyList.Remove (other);

@@ -4,7 +4,7 @@ using System.Collections;
 public class BulletScript : MonoBehaviour {
 
 	private int speed = 10;
-	private int damage = 34;
+	private int damage = 25;
 
 	// Use this for initialization
 	void Start () {

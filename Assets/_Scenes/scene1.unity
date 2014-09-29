@@ -163,6 +163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1707209342}
+  - {fileID: 1629907376}
   m_Father: {fileID: 1006346781}
   m_RootOrder: 0
 --- !u!1 &938626301
@@ -315,6 +316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 844930599}
   bullet: {fileID: 100000, guid: 1dcbfeaa8310d994788664e6a39be870, type: 2}
+  bulletSpawn: {fileID: 1629907375}
+  shootCooldown: 1
   enemyList: []
 --- !u!33 &1006346780
 MeshFilter:
@@ -347,6 +350,33 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 5, y: 6}
   m_Center: {x: 0, y: 0}
+--- !u!1 &1629907375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1629907376}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1629907376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1629907375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .76058948, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 844930600}
+  m_RootOrder: 1
 --- !u!1 &1707209338
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +386,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1707209342}
   - 33: {fileID: 1707209341}
-  - 65: {fileID: 1707209340}
   - 23: {fileID: 1707209339}
   m_Layer: 0
   m_Name: TurretGunArt
@@ -385,18 +414,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!65 &1707209340
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1707209338}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1707209341
 MeshFilter:
   m_ObjectHideFlags: 0
