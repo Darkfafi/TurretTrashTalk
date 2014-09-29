@@ -10,12 +10,7 @@ public class TurretSystemScript : MonoBehaviour {
 	public List<GameObject> enemyList = new List<GameObject>();
 	
 	private bool shooting = false;
-	
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log(shooting);
@@ -30,7 +25,7 @@ public class TurretSystemScript : MonoBehaviour {
 	}
 	
 	void LockOnTarget(){
-		if(enemyList != null){
+		if(enemyList[0] != null){
 			gun.transform.LookAt (enemyList[0].gameObject.transform.position);
 			gun.transform.Rotate (new Vector3 (90, 0, 0));
 			if (shooting == false && enemyList.Count > 0) {

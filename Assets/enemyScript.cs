@@ -17,25 +17,13 @@ public class enemyScript : MonoBehaviour {
 
 	public void TakeDamage(int dmg){
 		hp -= dmg;
-		Debug.Log (hp);
+		//Debug.Log (hp);
 		if (hp <= 0) {
 			Death();
 		}
 	}
 	private void Death(){
-		Debug.Log("i'm dead");
+		//Debug.Log("i'm dead");
 		Destroy (this.gameObject);
 	}
-	/*
-	public int CompareTo(enemyScript other){
-
-		if(other.speed == this.speed){
-
-			return this.CompareTo(other);
-		}
-
-		return other.speed.CompareTo(this.speed);
-
-	}
-	*/
 }
