@@ -6,6 +6,7 @@ public class TurretSystemScript : MonoBehaviour {
 	
 	public GameObject gun;
 	public GameObject bullet;
+	public GameObject bulletSpawn;
 	
 	public List<GameObject> enemyList = new List<GameObject>();
 	
@@ -21,7 +22,7 @@ public class TurretSystemScript : MonoBehaviour {
 		}
 		if(enemyList.Count > 0){
 			LockOnTarget ();
-		}else{shooting = false;}
+		}else if(shooting) {shooting = false; Debug.Log("gdgdf");}
 	}
 	
 	void LockOnTarget(){
@@ -64,10 +65,11 @@ public class TurretSystemScript : MonoBehaviour {
 	}
 	void Shoot(){
 		if(shooting){
-			Invoke("Shoot",0.25f);
-		}
-		if(enemyList.Count > 0){
-			Instantiate (bullet,gun.transform.position, gun.transform.rotation);
+			Invoke("Shoot",0.35f);
+		
+			if(enemyList.Count > 0){
+				Instantiate (bullet,bulletSpawn.transform.position, gun.transform.rotation);
+			}
 		}
 	}
 	void RemoveTarget(GameObject other){
