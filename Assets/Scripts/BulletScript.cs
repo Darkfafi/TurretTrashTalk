@@ -5,6 +5,8 @@ public class BulletScript : MonoBehaviour {
 
 	private int speed = 10;
 	private int damage = 25;
+	
+	//public GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +21,12 @@ public class BulletScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Enemy") {
 			other.GetComponent<enemyScript>().TakeDamage(damage);
-			Destroy (this.gameObject);
+			Explode();
 		}
+	}
+
+	void Explode(){
+		//Instantiate (explosion, this.transform.position, this.transform.rotation);
+		Destroy (this.gameObject);
 	}
 }

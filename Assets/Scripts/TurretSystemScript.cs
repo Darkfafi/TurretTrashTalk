@@ -44,8 +44,9 @@ public class TurretSystemScript : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D target){
 		if(target.gameObject.tag == "Enemy"){
-			float targetSpeed = target.gameObject.GetComponent<enemyScript> ().speed;
-			float targetHealth = target.gameObject.GetComponent<enemyScript>().hp;
+			enemyScript targetScript = target.gameObject.GetComponent<enemyScript> ();
+			float targetSpeed = targetScript.speed;
+			float targetHealth = targetScript.hp;
 
 			if(enemyList.Count > 0){
 				//hij kijkt of de enemy sneller is en minder leven heeft dan de ander. Anders maakt hij eerst de minder leven af anders is het minder functioneel

@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 50
   speed: 2
+  explosion: {fileID: 100000, guid: 606eed6f268b93f4e8f43899950fd943, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
